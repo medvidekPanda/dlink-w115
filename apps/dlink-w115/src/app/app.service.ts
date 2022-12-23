@@ -4,7 +4,6 @@ import WebSocketClient = require('dlink_websocketclient');
 @Injectable()
 export class AppService {
   async getSocketStatus(): Promise<{ status: boolean }> {
-    console.log('getSocketStatus');
     const client = new WebSocketClient({
       ip: '10.40.196.67',
       pin: '847019',
@@ -23,7 +22,6 @@ export class AppService {
   }
 
   async toggleSocket(): Promise<{ status: boolean }> {
-    console.log('toggleSocket');
     const client = new WebSocketClient({
       ip: '10.40.196.67',
       pin: '847019',

@@ -5,8 +5,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /usr/src/app
 COPY dist/apps/dlink-w115/package*.json ./
 RUN npm install
-RUN npm i mysql2
-RUN npm i @nestjs/config
+RUN npm install dlink_websocketclient
 
 # Production image, copy all the files and run nest
 FROM docker.io/node:lts-alpine as runner
