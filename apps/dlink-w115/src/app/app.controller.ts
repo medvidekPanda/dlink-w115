@@ -6,8 +6,13 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getData() {
-    return this.appService.getData();
+  @Get('status')
+  getSocketStatus() {
+    return this.appService.getSocketStatus();
+  }
+
+  @Get('toggle')
+  toggleSocket() {
+    return this.appService.toggleSocket();
   }
 }

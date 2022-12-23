@@ -1,0 +1,18 @@
+.button-wrapper {
+  display: flex;
+  position: fixed;
+  inset: 0;
+
+  > button {
+    flex: 1;
+    margin: 3rem;
+    background-color: rgb(255, 0, 0);
+    border: none;
+    font-size: 5rem;
+    color: #fff;
+
+    &.on {
+      background-color: rgb(0, 128, 0);
+    }
+  }
+}

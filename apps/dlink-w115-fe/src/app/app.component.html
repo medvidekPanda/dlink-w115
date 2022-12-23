@@ -1,0 +1,8 @@
+<div class="button-wrapper">
+  <button
+    (click)="toggle()"
+    [ngClass]="{ on: (getStatus$ | async) === 'Zapnuto' }"
+  >
+    {{ getStatus$ | async }}
+  </button>
+</div>
