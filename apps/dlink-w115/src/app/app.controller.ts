@@ -11,6 +11,16 @@ export class AppController {
     return this.appService.getSocketStatus();
   }
 
+  @Get('on')
+  switchOn() {
+    return this.appService.switchOn();
+  }
+
+  @Get('off')
+  switchOf() {
+    return this.appService.switchOff();
+  }
+
   @Get('toggle')
   toggleSocket() {
     return this.appService.toggleSocket();

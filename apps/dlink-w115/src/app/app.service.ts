@@ -21,6 +21,43 @@ export class AppService {
     return { status: null };
   }
 
+  async switchOn(): Promise<{ status: boolean }> {
+    const client = new WebSocketClient({
+      ip: '10.40.196.67',
+      pin: '847019',
+    });
+
+    const logged = await client.login();
+
+    if (logged) {
+      await client.switch(true);
+      await client.state();
+      client.disconnect();
+    }
+
+    client.disconnect();
+
+    return { status: null };
+  }
+
+  async switchOff(): Promise<{ status: boolean }> {
+    const client = new WebSocketClient({
+      ip: '10.40.196.67',
+      pin: '847019',
+    });
+
+    const logged = await client.login();
+
+    if (logged) {
+      await client.switch(false);
+      await client.state();
+      client.disconnect();
+    }
+
+    client.disconnect();
+    return { status: null };
+  }
+
   async toggleSocket(): Promise<{ status: boolean }> {
     const client = new WebSocketClient({
       ip: '10.40.196.67',
