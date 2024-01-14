@@ -5,7 +5,7 @@ import WebSocketClient = require('dlink_websocketclient');
 export class AppService {
   async getSocketStatus(): Promise<{ status: boolean }> {
     const client = new WebSocketClient({
-      ip: '10.40.196.67',
+      ip: '10.40.198.67',
       pin: '847019',
     });
 

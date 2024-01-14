@@ -1,15 +1,12 @@
 # Install dependencies only when needed
-FROM docker.io/node:lts-alpine as deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
+FROM node:20 as deps
 WORKDIR /usr/src/app
 COPY dist/apps/dlink-w115/package*.json ./
 RUN npm install
 RUN npm install dlink_websocketclient
 
 # Production image, copy all the files and run nest
-FROM docker.io/node:lts-alpine as runner
-RUN apk add --no-cache dumb-init
+FROM node:20-alpine as runner
 ENV NODE_ENV production
 ENV PORT 3333
 WORKDIR /usr/src/app
@@ -19,4 +16,4 @@ COPY dist/apps/dlink-w115 .
 RUN chown -R node:node .
 USER node
 EXPOSE 3333
-CMD ["dumb-init", "node", "main.js"]
+CMD ["node", "dist/main.js"]

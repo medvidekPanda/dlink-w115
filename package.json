@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build:api": "npx nx run dlink-w115:build --configuration=production && cp ./apps/dlink-w115/package.json ./dist/apps/dlink-w115/ && docker build --platform linux/arm/v8 -t medvidekpanda/dlink-w115-arm:latest -f ./apps/dlink-w115/Dockerfile .",
+    "build:api": "npx nx run dlink-w115:build --configuration=production && cp ./apps/dlink-w115/package.json ./dist/apps/dlink-w115/ && docker build --platform linux/arm/v8 -t medvidekpanda/dlink-w115-arm:0.0.7 -f ./apps/dlink-w115/Dockerfile .",
     "build:fe": "npx nx run dlink-w115-fe:build --configuration=production && docker build --platform linux/arm/v8 -t medvidekpanda/dlink-w115-fe:latest -f ./apps/dlink-w115-fe/Dockerfile .",
     "start": "nx run dlink-w115-fe:serve",
     "start:api": "nx run dlink-w115:serve "

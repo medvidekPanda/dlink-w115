@@ -1,6 +1,6 @@
 {
   "name": "dlink-w115",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "dependencies": {
     "@nestjs/common": "9.2.0",
     "@nestjs/core": "9.2.0",
